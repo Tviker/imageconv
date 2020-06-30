@@ -11,8 +11,8 @@
 <div class="col-sm-12">
     <form class="form-inline" action="">
         <div class="form-group">
-            <input type="file" id="image" id="image-input" >
-            <select id="inputState" class="form-control">
+            <input type="file" name="image">
+            <select id="output" class="form-control">
                 <option selected disabled>Output...</option>
                 <option value="original">original image</option>
                 <option value="square">square image</option>
