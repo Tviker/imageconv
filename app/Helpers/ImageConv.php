@@ -1,17 +1,12 @@
 <?php
 
-namespace App\Http\Helpers;
+namespace App\Helpers;
 
 use App\ImageResult;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Image;
 
 class ImageConv
 {
-    const ORIGINAL = 'original';
-    const SMALL = 'small';
-    const SQUARE = 'square';
     const ALL = 'all';
     private $imageOriginal;
     private $imageSmall;
@@ -50,6 +45,11 @@ class ImageConv
         return $hash;
     }
 
+    /**
+     * Get array with handlers
+     * @param $output
+     * @return array
+     */
     public function getImageHandler($output)
     {
         switch ($output) {

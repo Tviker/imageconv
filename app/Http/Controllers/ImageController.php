@@ -3,10 +3,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\ImageConv;
+use App\Helpers\ImageConv;
 use App\Http\Requests\ImageStoreRequest;
 use App\ImageResult;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ImageController extends Controller
 {
@@ -23,7 +25,7 @@ class ImageController extends Controller
 
     /**
      * Show index page
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
     public function index()
     {
@@ -33,7 +35,7 @@ class ImageController extends Controller
     /**
      * Store image and redirect to result
      * @param ImageStoreRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(ImageStoreRequest $request)
     {
@@ -44,7 +46,7 @@ class ImageController extends Controller
     /**
      * Show results image
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
     public function show(Request $request)
     {

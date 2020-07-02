@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Helpers;
+namespace App\Helpers;
 
 
 use App\ImageResult;
