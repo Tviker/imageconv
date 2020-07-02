@@ -4,12 +4,18 @@
 namespace App\Http\Helpers;
 
 
+use App\ImageResult;
 use Illuminate\Http\UploadedFile;
 use Intervention\Image\Facades\Image;
 
 class ImageOriginal extends ImageHandler
 {
 
+    /**
+     * Return origin image
+     * @param UploadedFile $file
+     * @return \Intervention\Image\Image
+     */
     public function handler(UploadedFile $file)
     {
         return Image::make($file);
@@ -17,6 +23,6 @@ class ImageOriginal extends ImageHandler
 
     public function getType(): string
     {
-        return ImageConv::ORIGINAL;
+        return ImageResult::ORIGINAL;
     }
 }

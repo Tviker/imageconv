@@ -4,12 +4,18 @@
 namespace App\Http\Helpers;
 
 
+use App\ImageResult;
 use Illuminate\Http\UploadedFile;
 use Intervention\Image\Facades\Image;
 
 class ImageSquare extends ImageHandler
 {
 
+    /**
+     * Make square image add white to space, doesn't crop
+     * @param UploadedFile $file
+     * @return \Intervention\Image\Image
+     */
     public function handler(UploadedFile $file)
     {
         $image = Image::make($file);
@@ -21,6 +27,6 @@ class ImageSquare extends ImageHandler
 
     public function getType(): string
     {
-        return ImageConv::SQUARE;
+        return ImageResult::SQUARE;
     }
 }

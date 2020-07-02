@@ -18,6 +18,13 @@ class ImageConv
     private $imageSquare;
     private $saveHelper;
 
+    /**
+     * ImageConv constructor.
+     * @param ImageSmall $imageSmall
+     * @param ImageOriginal $imageOriginal
+     * @param ImageSquare $imageSquare
+     * @param ImageSaveHelper $imageSave
+     */
     public function __construct(ImageSmall $imageSmall, ImageOriginal $imageOriginal, ImageSquare $imageSquare,
                                 ImageSaveHelper $imageSave)
     {
@@ -27,7 +34,13 @@ class ImageConv
         $this->saveHelper = $imageSave;
     }
 
-    public function converting(UploadedFile $photo, $output)
+    /**
+     * Get handlers and process image
+     * @param UploadedFile $photo
+     * @param string $output
+     * @return false|string
+     */
+    public function converting(UploadedFile $photo, string $output)
     {
         $hash = sha1_file($photo->path());
         foreach ($this->getImageHandler($output) as $imageConvector) {
@@ -40,11 +53,11 @@ class ImageConv
     public function getImageHandler($output)
     {
         switch ($output) {
-            case ImageConv::ORIGINAL:
+            case ImageResult::ORIGINAL:
                 return [$this->imageOriginal];
-            case ImageConv::SMALL:
+            case ImageResult::SMALL:
                 return [$this->imageSmall];
-            case ImageConv::SQUARE:
+            case ImageResult::SQUARE:
                 return [$this->imageSquare];
             case ImageConv::ALL:
                 return [$this->imageOriginal, $this->imageSmall, $this->imageSquare];
