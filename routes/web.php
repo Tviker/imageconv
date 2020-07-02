@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('/', 'ImageController')->only(['index', 'store', 'show']);
+Route::get('/', 'ImageController@index')->name('image.index');
+Route::get('/show', 'ImageController@show')->name('image.show');
+Route::post('/', 'ImageController@store')->name('image.store');
 
-Route::get('/', function () {
-    return view('index');
-});

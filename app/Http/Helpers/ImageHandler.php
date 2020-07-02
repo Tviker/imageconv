@@ -4,7 +4,11 @@
 namespace App\Http\Helpers;
 
 
-interface ImageHandler
+use Illuminate\Http\UploadedFile;
+
+abstract class ImageHandler
 {
-    public function handler();
+    public abstract function handler(UploadedFile $file);
+
+    public abstract function getType(): string;
 }
